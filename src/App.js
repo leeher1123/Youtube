@@ -4,7 +4,7 @@ import styled from 'styled-components';
 
 import Home from './pages/Home';
 import { GlobalStyle } from './style/GlobalStyle';
-import Header from './views/shared/components/header';
+import Header from './views/shared/components/Header';
 
 const App = () => (
   <Container>

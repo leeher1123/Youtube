@@ -20,7 +20,6 @@ const Header = () => {
 };
 
 const Container = styled.div`
-  max-width: 1400px;
   padding: 0 16px;
   display: flex;
   align-items: center;
@@ -30,6 +29,7 @@ const Container = styled.div`
 `;
 
 const Logo = styled.div`
+  min-width: 20%;
   display: flex;
   align-items: center;
 `;
