@@ -20,6 +20,7 @@ const IconMenus = () => {
 };
 
 const Container = styled.div`
+  min-width: 20%;
   display: flex;
   justify-content: flex-end;
   margin-left: 50px;

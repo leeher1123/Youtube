@@ -37,7 +37,7 @@ const SearchBox = () => {
 };
 
 const Container = styled.div`
-
+  flex: 1;
 `;
 
 const Box = styled.div`
@@ -47,9 +47,9 @@ const Box = styled.div`
 
 const Form = styled.form`
   display: flex;
-  flex: 2;
+  flex: 1;
   align-items: center;
-  width: 640px;
+  max-width: 640px;
   height: 30px;
   margin-right: 8px;
   background-color: #111;
