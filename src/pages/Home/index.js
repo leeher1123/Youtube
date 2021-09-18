@@ -1,9 +1,11 @@
 import React from 'react';
 import styled from 'styled-components';
 
+import HomeContainer from '../../views/home/containers/HomeContainer';
+
 const Home = () => (
   <Container>
-    ㅓ
+    <HomeContainer />
   </Container>
 );
 
