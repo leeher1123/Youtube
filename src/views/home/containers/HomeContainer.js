@@ -1,11 +1,13 @@
 import React, { useEffect } from 'react';
 import styled from 'styled-components';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 
 import { actions } from '../../shared/redux/reducer';
+import MainVideosList from '../components/MainVideosList';
 
 const HomeContainer = () => {
   const dispatch = useDispatch();
+  const videos = useSelector((state) => state.shared.videos);
   const getVideos = () => {
     dispatch(actions.getVideos({
       key: 'AIzaSyAHuPMZcDQA74fPEKkh-qfX-O4u11iyfEY',
@@ -21,7 +23,7 @@ const HomeContainer = () => {
 
   return (
     <Container>
-      HomeContainer
+      <MainVideosList videos={videos} />
     </Container>
   );
 };
