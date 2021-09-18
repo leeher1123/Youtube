@@ -8,8 +8,11 @@ const HomeContainer = () => {
   const dispatch = useDispatch();
   const getVideos = () => {
     dispatch(actions.getVideos({
-      key: '',
-      perPage: 20,
+      key: 'AIzaSyAHuPMZcDQA74fPEKkh-qfX-O4u11iyfEY',
+      part: 'id, snippet, contentDetails',
+      chart: 'mostPopular',
+      regionCode: 'KR',
+      maxResults: 10,
     }));
   };
   useEffect(() => {
