@@ -11,10 +11,10 @@ const HomeContainer = () => {
   const getVideos = () => {
     dispatch(actions.getVideos({
       key: 'AIzaSyAHuPMZcDQA74fPEKkh-qfX-O4u11iyfEY',
-      part: 'id, snippet, contentDetails',
+      part: 'id, snippet, statistics',
       chart: 'mostPopular',
       regionCode: 'KR',
-      maxResults: 10,
+      maxResults: 5,
     }));
   };
   useEffect(() => {

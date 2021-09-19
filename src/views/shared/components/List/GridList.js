@@ -1,15 +1,17 @@
 import React from 'react';
 import styled from 'styled-components';
 
-const GridList = ({ data }) => {
+const GridList = ({ data, children }) => {
   const a = 1;
   return (
     <Container>
       <Row>
         {
           data.map((item) => (
-            <Col>
-              <img src={item?.snippet?.thumbnails?.medium?.url} alt="사진" />
+            <Col key={item.id}>
+              {
+                children(item)
+              }
             </Col>
           ))
         }

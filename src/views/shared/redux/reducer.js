@@ -4,8 +4,12 @@ const slice = createSlice({
   name: 'shared',
   initialState: {
     videos: {},
+    sidebar: false,
   },
   reducers: {
+    updateState: (state, { payload }) => {
+      state.sidebar = payload;
+    },
     getVideos: (state, { payload }) => {
 
     },
@@ -15,8 +19,9 @@ const slice = createSlice({
   },
 });
 
-const { getVideos, setVideos } = slice.actions;
+const { updateState, getVideos, setVideos } = slice.actions;
 export const actions = {
+  updateState,
   getVideos,
   setVideos,
 };
