@@ -21,7 +21,8 @@ const GridList = ({ data, children }) => {
 };
 
 const Container = styled.div`
-
+  background: #181818;
+  padding: 24px;
 `;
 
 const Row = styled.div`

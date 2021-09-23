@@ -18,6 +18,11 @@ const MainVideosList = ({ videos }) => {
 };
 
 const Container = styled.div`
+  max-width: 1380px;
+  position: relative;
+  top: 116px;
+  left: 70px;
+  right: 0;
   background: #212121;
 `;
 

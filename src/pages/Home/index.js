@@ -6,8 +6,8 @@ import SideMenu from '../../views/home/SideMenu';
 
 const Home = () => (
   <Container>
-    <HomeContainer />
     <SideMenu />
+    <HomeContainer />
   </Container>
 );
 

@@ -43,6 +43,7 @@ const Container = styled.div`
 const Box = styled.div`
   display: flex;
   align-items: center;
+  height: 40px;
 `;
 
 const Form = styled.form`
@@ -50,7 +51,7 @@ const Form = styled.form`
   flex: 1;
   align-items: center;
   max-width: 640px;
-  height: 30px;
+  height: 100%;
   margin-right: 8px;
   background-color: #111;
   border: 1px solid #303030;
@@ -83,22 +84,16 @@ const Button = styled(DefaultButton)`
   display: flex;
   align-items: center;
   justify-content: center;
-  
+  height: 100%;
   &.searchBtn {
     padding: 1px 6px;
     width: 65px;
     background: #323232;
     transition: .3s;
-    &:hover {
-      svg {
-        fill: #fff;
-      }
-    }
     svg {
       width: 24px;
       height: 24px;
-      fill: #afafaf;
-      transition: .1s;
+      fill: #fff;
     }
   }
   

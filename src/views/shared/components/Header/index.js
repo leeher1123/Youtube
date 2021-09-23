@@ -32,11 +32,16 @@ const Header = () => {
 };
 
 const Container = styled.div`
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
   padding: 0 16px;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  background-color: #212121;
+  background-color: rgba(33, 33, 33, 0.98);
   height: 56px;
 `;
 
