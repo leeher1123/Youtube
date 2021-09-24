@@ -36,8 +36,6 @@ const HomeContainer = () => {
     getCategories();
   }, []);
 
-  if (!categories) return '...loading';
-
   return (
     <Container>
       <ScrollMenu categories={categories.items} />
@@ -47,7 +45,7 @@ const HomeContainer = () => {
 };
 
 const Container = styled.div`
-
+  
 `;
 
 export default HomeContainer;

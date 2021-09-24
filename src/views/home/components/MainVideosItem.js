@@ -33,11 +33,15 @@ const MainVideosItem = ({ item }) => {
 };
 
 const Container = styled.div`
-  
+  margin-bottom: 30px;
 `;
 
 const Thumb = styled.div`
-
+  margin-bottom: 15px;
+  img {
+    width: 100%;
+    height: 100%;
+  }
 `;
 
 const Contents = styled.div`
@@ -49,9 +53,9 @@ const User = styled.div`
 `;
 
 const Desc = styled.div`
+  padding-right: 24px;
   h1 {
     color: #fff;
-    padding: 10px 0;
     font-size: 14px;
     font-weight: 500;
   }

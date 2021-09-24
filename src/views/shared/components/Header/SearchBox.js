@@ -43,6 +43,7 @@ const Container = styled.div`
 const Box = styled.div`
   display: flex;
   align-items: center;
+  justify-content: center;
   height: 40px;
 `;
 

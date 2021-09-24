@@ -22,13 +22,13 @@ const GridList = ({ data, children }) => {
 
 const Container = styled.div`
   background: #181818;
-  padding: 24px;
 `;
 
 const Row = styled.div`
   display: flex;
   flex-wrap: wrap;
   padding: 0 -7px;
+  margin: 24px;
 `;
 
 const Col = styled.div`
