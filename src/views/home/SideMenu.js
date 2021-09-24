@@ -32,30 +32,28 @@ const SideMenu = () => {
 const Container = styled.div`
   position: fixed;
   top: 56px;
-  right: 300px;
+  right: 0;
   left: 0;
   bottom: 0;
-  z-index: 1000;
-  width: 72px;
+  z-index: 10;
   background: rgba(33, 33, 33, 0.98);
+  width: 72px;
 `;
 
 const MenuIcon = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  width: 72px;
+  width: 100%;
   height: 72px;
   padding: 16px 0 14px;
   svg {
     width: 24px;
-    height: 24px;
-    fill: #fff;
     height: 100%;
+    fill: #fff;
   }
   p {
     color: #fff;
-    
     font-size: 10px;
   }
 `;
