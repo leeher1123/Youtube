@@ -1,17 +1,28 @@
 import React from 'react';
 import styled from 'styled-components';
 
+import { useDispatch, useSelector } from 'react-redux';
+
+import { Link } from 'react-router-dom';
+
 import { IconLogo, IconMenuBar } from '../../../../icon';
 import SearchBox from './SearchBox';
 import IconMenus from './IconMenus';
+import { actions } from '../../redux/reducer';
 
 const Header = () => {
-  const a = 1;
+  const dispatch = useDispatch();
+  const sidebar = useSelector((state) => state.shared.sidebar);
+  const handleSidebar = () => {
+    dispatch(actions.updateState(!sidebar));
+  };
 
   return (
     <Container>
-      <Logo>
-        <BarIcon><IconMenuBar /></BarIcon>
+      <Menu>
+        <BarIcon onClick={handleSidebar}><IconMenuBar /></BarIcon>
+      </Menu>
+      <Logo to="/">
         <LogoIcon><IconLogo /></LogoIcon>
       </Logo>
       <SearchBox />
@@ -21,18 +32,28 @@ const Header = () => {
 };
 
 const Container = styled.div`
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
   padding: 0 16px;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  background-color: #212121;
+  background-color: rgba(33, 33, 33, 0.98);
   height: 56px;
 `;
 
-const Logo = styled.div`
+const Menu = styled.div`
+  cursor: pointer;
+`;
+
+const Logo = styled(Link)`
   min-width: 20%;
   display: flex;
   align-items: center;
+  cursor: pointer;
 `;
 
 const BarIcon = styled.div`
