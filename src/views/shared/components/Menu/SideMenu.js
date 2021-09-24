@@ -3,7 +3,7 @@ import styled from 'styled-components';
 
 import {
   IconSideHome, IconSideKeep, IconSideSearch, IconSideSub,
-} from '../../icon';
+} from '../../../../icon';
 
 const SideMenu = () => {
   const a = 1;
@@ -47,6 +47,8 @@ const MenuIcon = styled.div`
   width: 100%;
   height: 72px;
   padding: 16px 0 14px;
+  transition: .2s;
+  cursor: pointer;
   svg {
     width: 24px;
     height: 100%;
@@ -56,10 +58,9 @@ const MenuIcon = styled.div`
     color: #fff;
     font-size: 10px;
   }
-`;
-
-const Text = styled.div`
-
+  &:hover {
+    background: rgba(118, 118, 118, 0.3);
+  }
 `;
 
 export default SideMenu;

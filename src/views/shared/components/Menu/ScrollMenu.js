@@ -46,6 +46,11 @@ const MenuItem = styled.div`
   border-radius: 40px;
   font-size: 14px;
   background: #3d3d3d;
+  transition: .2s;
+  cursor: pointer;
+  &:hover {
+    background: rgba(118, 118, 118, 0.7);
+  }
 `;
 
 export default ScrollMenu;
