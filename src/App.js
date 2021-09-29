@@ -5,6 +5,7 @@ import styled from 'styled-components';
 import Home from './pages/Home';
 import { GlobalStyle } from './style/GlobalStyle';
 import Header from './views/shared/components/Header';
+import Search from './pages/Search';
 
 const App = () => (
   <Container>
@@ -12,6 +13,7 @@ const App = () => (
     <Header />
     <Switch>
       <Route exact path="/" component={Home} />
+      <Route exact path="/search/:id" component={Search} />
     </Switch>
   </Container>
 );
