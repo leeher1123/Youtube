@@ -59,7 +59,6 @@ export const GlobalStyle = createGlobalStyle`
 
   img {
     vertical-align: top;
-    max-width: 100%;
   }
 
   a {
