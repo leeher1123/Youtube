@@ -1,14 +1,17 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
+import { useHistory } from 'react-router-dom';
 
 import { DefaultButton } from '../Button/Button.Styled';
 import { IconMic, IconSearch } from '../../../../icon';
-import Tooltip from '../Tooltip';
 
 const SearchBox = () => {
+  const history = useHistory();
   const [value, setValue] = useState('');
+
   const onSubmit = (e) => {
     e.preventDefault();
+    history.push(`/search/${value}`);
   };
 
   const onChange = (e) => {
@@ -28,7 +31,6 @@ const SearchBox = () => {
             />
           </Label>
           <Button className="searchBtn"><IconSearch /></Button>
-          <Tooltip message="검색" direction="bottom" />
         </Form>
         <Button className="micBtn"><IconMic /></Button>
       </Box>

@@ -18,9 +18,7 @@ const MainVideosList = ({ videos }) => {
 };
 
 const Container = styled.div`
-  position: relative;
-  top: 116px;
-  right: 0;
+  padding-top: 116px;
   background: #212121;
   z-index: 100;
   margin-left: 5%;
