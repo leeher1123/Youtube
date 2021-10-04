@@ -3,16 +3,24 @@ import styled from 'styled-components';
 import { formatDistance } from 'date-fns';
 import ko from 'date-fns/locale/ko';
 
+import { useHistory } from 'react-router-dom';
+
 import { IconDropdown } from '../../../icon';
 
 const SearchVideoItem = ({ item }) => {
+  const history = useHistory();
+  const onClick = () => {
+    history.push(`/watch/${item.id.videoId}`);
+  };
   const distance = formatDistance(
     new Date(item?.snippet?.publishedAt),
     new Date(Date.now()),
     { addSuffix: true, locale: ko },
   );
+
   return (
-    <Container>
+    <Container onClick={onClick}>
+      <Cover />
       <Thumb>
         <img src={item.snippet.thumbnails.medium.url} alt="썸네일" />
       </Thumb>
@@ -35,7 +43,25 @@ const SearchVideoItem = ({ item }) => {
 };
 
 const Container = styled.div`
+  position: relative;
   display: flex;
+  padding: 5px;
+  cursor: pointer;
+`;
+
+const Cover = styled.div`
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 10;
+  background: rgba(238, 238, 238, 0.16);
+  border: 1px solid #767676;
+  opacity: 0;
+  &:active {
+    opacity: 1;
+  }
 `;
 
 const Thumb = styled.div`
