@@ -3,12 +3,15 @@ import styled from 'styled-components';
 import { formatDistance } from 'date-fns';
 import ko from 'date-fns/locale/ko';
 
+import { count } from '../../../lib/count';
+
 const MainVideosItem = ({ item }) => {
   const distance = formatDistance(
     new Date(item?.snippet?.publishedAt),
     new Date(Date.now()),
     { addSuffix: true, locale: ko },
   );
+
   return (
     <Container>
       <Thumb>
@@ -24,8 +27,8 @@ const MainVideosItem = ({ item }) => {
           <span>
             조회수
             &nbsp;
-            {Math.floor((item?.statistics?.viewCount) / 10000)}
-            만회
+            {count(item?.statistics?.viewCount)}
+            회
           </span>
           <Dot>•</Dot>
           <span>

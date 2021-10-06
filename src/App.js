@@ -6,6 +6,7 @@ import Home from './pages/Home';
 import { GlobalStyle } from './style/GlobalStyle';
 import Header from './views/shared/components/Header';
 import Search from './pages/Search';
+import Watch from './pages/Watch';
 
 const App = () => (
   <Container>
@@ -14,6 +15,7 @@ const App = () => (
     <Switch>
       <Route exact path="/" component={Home} />
       <Route exact path="/search/:id" component={Search} />
+      <Route exact path="/watch/:videoId" component={Watch} />
     </Switch>
   </Container>
 );
