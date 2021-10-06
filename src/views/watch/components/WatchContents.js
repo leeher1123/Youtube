@@ -1,13 +1,14 @@
 import React from 'react';
 import styled from 'styled-components';
-import { format } from 'date-fns';
+import moment from 'moment';
 
 import {
   IconDislike, IconLike, IconSave, IconShare,
 } from '../../../icon';
+import { count } from '../../../lib/count';
 
 const WatchContents = ({ data = [] }) => {
-  const a = 1;
+  const price = data[0]?.statistics.viewCount;
   return (
     <Container>
       <h2>{data[0]?.snippet?.title}</h2>
@@ -16,20 +17,21 @@ const WatchContents = ({ data = [] }) => {
           <p>
             조회수
             &nbsp;
-            {(data[0]?.statistics.viewCount).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')}
+            {Number(price).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')}
             회
           </p>
           <Point>•</Point>
-          <p>{format(new Date(data[0]?.snippet?.publishedAt), 'yyyy. MM. dd.')}</p>
+          <p>{moment(data[0]?.snippet?.publishedAt).format('YYYY. MM. DD')}</p>
         </Text>
         <Info>
           <Item>
             <Icon><IconLike /></Icon>
-            <p>d</p>
+            <p>{count(data[0]?.statistics.likeCount)}</p>
+            <Bar />
           </Item>
           <Item>
             <Icon><IconDislike /></Icon>
-            <p>d</p>
+            <p>{count(data[0]?.statistics.dislikeCount)}</p>
           </Item>
           <Item>
             <Icon><IconShare /></Icon>
@@ -37,9 +39,8 @@ const WatchContents = ({ data = [] }) => {
           </Item>
           <Item>
             <Icon><IconSave /></Icon>
-            <p>d</p>
+            <p>저장</p>
           </Item>
-          <Item>저장</Item>
         </Info>
       </Desc>
     </Container>
@@ -49,8 +50,8 @@ const WatchContents = ({ data = [] }) => {
 const Container = styled.div`
   color: #fff;
   padding: 20px 0 8px;
+  width: 98%;
   h2 {
-    width: 98%;
     font-size: 18px;
     font-weight: 400;
     color: #fff;
@@ -62,6 +63,8 @@ const Desc = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-between;
+  margin-bottom: 25px;
+  border-bottom: 1px solid rgba(238, 238, 238, 0.15);
 `;
 
 const Text = styled.div`
@@ -86,6 +89,7 @@ const Info = styled.div`
 `;
 
 const Item = styled.div`
+  position: relative;
   display: flex;
   align-items: center;
   p {
@@ -93,7 +97,18 @@ const Item = styled.div`
   }
 `;
 
+const Bar = styled.div`
+  position: absolute;
+  bottom: -3px;
+  left: 15px;
+  width: 140px;
+  height: 2px;
+  background: #fff;
+`;
+
 const Icon = styled.div`
+  padding: 6px;
+  margin-left: 8px;
   svg {
     width: 24px;
     height: 24px;
