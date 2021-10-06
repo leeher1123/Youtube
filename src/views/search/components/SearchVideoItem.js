@@ -125,6 +125,9 @@ const Desc = styled.div`
   font-size: 12px;
   font-weight: 400;
   color: #aaa;
+  max-width: 530px;
+  white-space: nowrap;
+  text-overflow: ellipsis;
 `;
 
 export default SearchVideoItem;

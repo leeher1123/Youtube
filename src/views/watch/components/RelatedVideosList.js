@@ -1,19 +1,25 @@
 import React from 'react';
 import styled from 'styled-components';
 
-const RelatedVideosList = () => {
+import VideoGridList from '../../shared/components/List/VideoGridList';
+import SearchVideoItem from '../../search/components/SearchVideoItem';
+
+const RelatedVideosList = ({ searchVideos }) => {
   const a = 1;
   return (
     <Container>
-      RelatedVideosList
+      <VideoGridList data={searchVideos.items}>
+        {
+          (item) => <SearchVideoItem item={item} />
+        }
+      </VideoGridList>
     </Container>
   );
 };
 
 const Container = styled.div`
   padding: 24px 24px 0 0;
-  color: #fff;
-  width: 427px;
+  width: 300px;
 `;
 
 export default RelatedVideosList;

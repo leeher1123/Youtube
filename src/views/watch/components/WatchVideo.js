@@ -8,8 +8,8 @@ import WatchContents from './WatchContents';
 const WatchVideo = ({ videos }) => {
   const { videoId } = useParams();
   const opts = {
-    width: '668',
-    height: '360',
+    width: '948',
+    height: '535',
     playerVars: {
       autoplay: 1,
     },
@@ -26,8 +26,8 @@ const WatchVideo = ({ videos }) => {
 };
 
 const Container = styled.div`
-  margin-left: 24px;
-  padding: 24px 24px 0 0;
+  max-width: 1387px;
+  padding-top: 24px;
 `;
 
 export default WatchVideo;
