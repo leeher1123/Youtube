@@ -6,6 +6,8 @@ const slice = createSlice({
     videos: {},
     sidebar: false,
     categories: {},
+    normalSidebar: false,
+    drawerSidebar: false,
   },
   reducers: {
     updateState: (state, { payload }) => {
@@ -23,11 +25,23 @@ const slice = createSlice({
     setCategories: (state, { payload }) => {
       state.categories = payload;
     },
+    handleNormalSidebar: (state, { payload }) => {
+      state.normalSidebar = payload;
+    },
+    handleDrawerSidebar: (state, { payload }) => {
+      state.drawerSidebar = payload;
+    },
   },
 });
 
 const {
-  updateState, getVideos, setVideos, getCategories, setCategories,
+  updateState,
+  getVideos,
+  setVideos,
+  getCategories,
+  setCategories,
+  handleNormalSidebar,
+  handleDrawerSidebar,
 } = slice.actions;
 export const actions = {
   updateState,
@@ -35,6 +49,8 @@ export const actions = {
   setVideos,
   getCategories,
   setCategories,
+  handleNormalSidebar,
+  handleDrawerSidebar,
 };
 
 export default slice.reducer;

@@ -5,6 +5,8 @@ import { useDispatch, useSelector } from 'react-redux';
 
 import { Link } from 'react-router-dom';
 
+import { useMediaMatch } from 'rooks';
+
 import { IconLogo, IconMenuBar } from '../../../../icon';
 import SearchBox from './SearchBox';
 import IconMenus from './IconMenus';
@@ -12,9 +14,15 @@ import { actions } from '../../redux/reducer';
 
 const Header = () => {
   const dispatch = useDispatch();
-  const sidebar = useSelector((state) => state.shared.sidebar);
+  const normalSidebar = useSelector((state) => state.shared.normalSidebar);
+  const drawerSidebar = useSelector((state) => state.shared.drawerSidebar);
+  const screenMd = useMediaMatch('(max-width: 1300px)');
   const handleSidebar = () => {
-    dispatch(actions.updateState(!sidebar));
+    if (screenMd) {
+      dispatch(actions.handleDrawerSidebar(!drawerSidebar));
+    } else {
+      dispatch(actions.handleNormalSidebar(!normalSidebar));
+    }
   };
 
   return (

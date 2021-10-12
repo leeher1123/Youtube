@@ -1,10 +1,13 @@
 import React from 'react';
 import styled from 'styled-components';
+import { useSelector } from 'react-redux';
+import cn from 'classnames';
 
 const ScrollMenu = ({ categories }) => {
+  const normalSidebar = useSelector((state) => state.shared.normalSidebar);
   if (!categories) return '...loading';
   return (
-    <Container>
+    <Container className={cn({ normalSidebar })}>
       <Track>
         {
           categories.map((item) => <MenuItem>{item.snippet.title}</MenuItem>)
@@ -20,9 +23,13 @@ const Container = styled.div`
   left: 72px;
   right: 0;
   z-index: 1000;
+  padding: 0 70px;
   background: rgba(33, 33, 33, 0.98);
   border-top: 1px solid rgba(118, 118, 118, 0.3);
   border-bottom: 1px solid rgba(118, 118, 118, 0.3);
+  &.normalSidebar {
+    left: 240px;
+  }
 `;
 
 const Track = styled.div`
