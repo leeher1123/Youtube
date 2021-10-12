@@ -18,10 +18,9 @@ const MainVideosList = ({ videos }) => {
 };
 
 const Container = styled.div`
-  padding-top: 116px;
-  background: #212121;
+  padding: 81px 24px 24px 24px;
+  background: #181818;
   z-index: 100;
-  margin-left: 5%;
 `;
 
 export default MainVideosList;
