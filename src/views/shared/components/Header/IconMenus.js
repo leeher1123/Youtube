@@ -1,9 +1,11 @@
 import React from 'react';
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 
 import { FaUserCircle } from 'react-icons/fa';
 
-import { IconApp, IconBell, IconVideo } from '../../../../icon';
+import {
+  IconApp, IconBell, IconVideo,
+} from '../../../../icon';
 
 const IconMenus = () => {
   const a = 1;
@@ -23,7 +25,7 @@ const Container = styled.div`
   min-width: 20%;
   display: flex;
   justify-content: flex-end;
-  margin-left: 50px;
+  margin-left: 15px;
 `;
 
 const Buttons = styled.div`

@@ -1,9 +1,10 @@
 import React, { useState } from 'react';
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 import { useHistory } from 'react-router-dom';
 
 import { DefaultButton } from '../Button/Button.Styled';
 import { IconMic, IconSearch } from '../../../../icon';
+import { media } from '../../../../lib/styled';
 
 const SearchBox = () => {
   const history = useHistory();
@@ -19,27 +20,52 @@ const SearchBox = () => {
   };
 
   return (
-    <Container>
-      <Box>
-        <Form onSubmit={onSubmit}>
-          <Label>
-            <Input
-              type="text"
-              placeholder="검색"
-              value={value}
-              onChange={onChange}
-            />
-          </Label>
-          <Button className="searchBtn"><IconSearch /></Button>
-        </Form>
-        <Button className="micBtn"><IconMic /></Button>
-      </Box>
-    </Container>
+    <>
+      <Icon><IconSearch /></Icon>
+      <Container>
+        <Box>
+          <Form onSubmit={onSubmit}>
+            <Label>
+              <Input
+                type="text"
+                placeholder="검색"
+                value={value}
+                onChange={onChange}
+              />
+            </Label>
+            <Button className="searchBtn"><IconSearch /></Button>
+          </Form>
+          <Button className="micBtn"><IconMic /></Button>
+        </Box>
+      </Container>
+    </>
   );
 };
 
 const Container = styled.div`
   flex: 1;
+  ${media.sm(css`
+    display: none;
+  `)}
+`;
+
+const Icon = styled.div`
+  display: none;
+  align-items: center;
+  flex-shrink: 0;
+  width: 40px;
+  height: 40px;
+  margin: 5px;
+  svg {
+    width: 24px;
+    height: 24px;
+    fill: #fff;
+  }
+  ${media.sm(css`
+    display: flex;
+    flex: 1;
+    justify-content: flex-end;
+  `)}
 `;
 
 const Box = styled.div`
