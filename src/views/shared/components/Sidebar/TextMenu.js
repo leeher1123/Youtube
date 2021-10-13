@@ -45,6 +45,7 @@ const Item = styled.div`
   align-items: center;
   padding: 0 24px;
   height: 40px;
+  cursor: pointer;
   svg {
     width: 24px;
     height: 24px;
@@ -54,6 +55,9 @@ const Item = styled.div`
     flex: 1;
     margin-left: 24px;
     font-size: 14px;
+  }
+  &:hover {
+    background: rgba(118, 118, 118, 0.3);
   }
 `;
 

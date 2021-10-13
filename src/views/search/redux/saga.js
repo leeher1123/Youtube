@@ -2,7 +2,7 @@ import {
   all, call, put, takeLatest,
 } from 'redux-saga/effects';
 
-import { actions } from './reducer';
+import { actions } from './slice';
 import API from '../../../api';
 
 const getRelatedVideos = function* ({ payload }) {

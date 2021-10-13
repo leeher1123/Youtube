@@ -3,14 +3,14 @@ import styled from 'styled-components';
 
 import { useDispatch, useSelector } from 'react-redux';
 
-import { Link } from 'react-router-dom';
+import { Link, useLocation, useParams } from 'react-router-dom';
 
 import { useMediaMatch } from 'rooks';
 
 import { IconLogo, IconMenuBar } from '../../../../icon';
 import SearchBox from './SearchBox';
 import IconMenus from './IconMenus';
-import { actions } from '../../redux/reducer';
+import { actions } from '../../redux/slice';
 
 const Header = () => {
   const dispatch = useDispatch();

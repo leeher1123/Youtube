@@ -27,7 +27,7 @@ const WatchVideo = ({ videos }) => {
 
 const Container = styled.div`
   max-width: 1387px;
-  padding-top: 24px;
+  padding: 24px 24px 0;
 `;
 
 export default WatchVideo;

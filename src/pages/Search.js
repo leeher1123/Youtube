@@ -4,17 +4,15 @@ import styled from 'styled-components';
 import SideMenu from '../views/shared/components/Menu/SideMenu';
 import SideScreen from '../views/shared/components/Menu/SideScreen';
 import SearchContainer from '../views/search/containers/SearchContainer';
+import Template from '../views/shared/layout/Template';
 
-const Search = () => {
-  const a = 1;
-  return (
-    <Container>
+const Search = () => (
+  <Container>
+    <Template>
       <SearchContainer />
-      <SideMenu />
-      <SideScreen />
-    </Container>
-  );
-};
+    </Template>
+  </Container>
+);
 
 const Container = styled.div`
 

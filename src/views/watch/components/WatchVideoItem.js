@@ -1,17 +1,14 @@
 import React from 'react';
 import styled from 'styled-components';
-import moment from 'moment';
-import 'moment/locale/ko';
-
 import { useHistory } from 'react-router-dom';
+import moment from 'moment';
 
-const SearchVideoItem = ({ item }) => {
+const WatchVideoItem = ({ item }) => {
   const history = useHistory();
   const onClick = () => {
     history.push(`/watch/${item.id.videoId}`);
   };
   const distance = moment(item?.snippet?.publishedAt).fromNow();
-
   return (
     <Container onClick={onClick}>
       <Cover />
@@ -23,13 +20,11 @@ const SearchVideoItem = ({ item }) => {
           <Text>
             <h2>{item.snippet?.title}</h2>
           </Text>
-          <p>{distance}</p>
-        </Title>
-        <Channel>
-          <img src="https://images.unsplash.com/photo-1501630834273-4b5604d2ee31?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=2070&q=80" alt="" />
           <p>{item.snippet?.channelTitle}</p>
-        </Channel>
-        <Desc>{item.snippet?.description}</Desc>
+        </Title>
+        <Desc>
+          <p>{distance}</p>
+        </Desc>
       </Contents>
     </Container>
   );
@@ -38,7 +33,6 @@ const SearchVideoItem = ({ item }) => {
 const Container = styled.div`
   position: relative;
   display: flex;
-  padding: 5px;
   cursor: pointer;
 `;
 
@@ -58,7 +52,8 @@ const Cover = styled.div`
 `;
 
 const Thumb = styled.div`
-  width: 30%;
+  width: 168px;
+  height: 94px;
   margin-right: 19px;
   img {
     width: 100%;
@@ -67,7 +62,7 @@ const Thumb = styled.div`
 `;
 
 const Contents = styled.div`
-  width: 70%;
+  width: 60%;
 `;
 
 const Title = styled.div`
@@ -77,10 +72,16 @@ const Title = styled.div`
     height: 24px;
   }
   p {
+    max-width: 672px;
     line-height: 1.6;
     font-size: 12px;
     font-weight: 400;
     color: #aaa;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
   }
 `;
 
@@ -88,22 +89,20 @@ const Text = styled.div`
   max-width: 672px;
   line-height: 1.4;
   h2 {
-    font-size: 18px;
-    font-weight: 400;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    font-size: 14px;
+    font-weight: 500;
     color: #fff;
     margin-top: 4px;
   }
 `;
-const Channel = styled.div`
+const Desc = styled.div`
   display: flex;
   align-items: center;
-  padding: 12px 0;
-  img {
-    width: 24px;
-    height: 24px;
-    border-radius: 50%;
-    margin-right: 5px;
-  }
   p {
     font-size: 12px;
     font-weight: 400;
@@ -111,16 +110,4 @@ const Channel = styled.div`
   }
 `;
 
-const Desc = styled.div`
-  width: 100%;
-  margin-top: 15px;
-  margin-right: 10px;
-  font-size: 12px;
-  font-weight: 400;
-  color: #aaa;
-  white-space: nowrap;
-  text-overflow: ellipsis;
-  overflow: hidden;
-`;
-
-export default SearchVideoItem;
+export default WatchVideoItem;
