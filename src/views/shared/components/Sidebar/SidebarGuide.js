@@ -6,9 +6,7 @@ import cn from 'classnames';
 const SidebarGuide = () => {
   const normalSidebar = useSelector((state) => state.shared.normalSidebar);
   return (
-    <Container className={cn({ normalSidebar })}>
-      SidebarGuide
-    </Container>
+    <Container className={cn({ normalSidebar })} />
   );
 };
 

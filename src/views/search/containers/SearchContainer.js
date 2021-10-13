@@ -4,14 +4,15 @@ import { useDispatch, useSelector } from 'react-redux';
 
 import { useParams } from 'react-router-dom';
 
-import { actions } from '../redux/reducer';
+import { actions } from '../redux/slice';
 import SearchVideoList from '../components/SearchVideoList';
+import SidebarContainer from '../../shared/containers/sidebar/SidebarContainer';
 
 const SearchContainer = () => {
   const dispatch = useDispatch();
   const { id } = useParams();
   const searchVideos = useSelector((state) => state.search.searchVideos);
-  const getRelatedVideos = () => {
+  const getSearchVideos = () => {
     dispatch(actions.getRelatedVideos({
       key: 'AIzaSyAHuPMZcDQA74fPEKkh-qfX-O4u11iyfEY',
       part: 'snippet, id',
@@ -22,11 +23,12 @@ const SearchContainer = () => {
     }));
   };
   useEffect(() => {
-    getRelatedVideos();
+    getSearchVideos();
   }, [id]);
 
   return (
     <Container>
+      <SidebarContainer />
       <SearchVideoList searchVideos={searchVideos} />
     </Container>
   );

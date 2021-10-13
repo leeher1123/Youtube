@@ -1,32 +1,23 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import styled from 'styled-components';
+import { useDispatch, useSelector } from 'react-redux';
 
 import { Link } from 'react-router-dom';
 
-import { useDispatch, useSelector } from 'react-redux';
-
 import cn from 'classnames';
 
-import { useMediaMatch } from 'rooks';
+import { actions } from '../../shared/redux/slice';
+import { IconLogo, IconMenuBar } from '../../../icon';
+import TextMenu from '../../shared/components/Sidebar/TextMenu';
 
-import TextMenu from './TextMenu';
-import { IconLogo, IconMenuBar } from '../../../../icon';
-import { actions } from '../../redux/slice';
-
-const DrawerSidebar = () => {
+const WatchSidebarContainer = () => {
   const dispatch = useDispatch();
-  const drawerSidebar = useSelector((state) => state.shared.drawerSidebar);
-  const screenSm = useMediaMatch('(max-width: 800px)');
+  const normalSidebar = useSelector((state) => state.shared.normalSidebar);
   const onClick = () => {
-    dispatch(actions.handleDrawerSidebar(false));
+    dispatch(actions.handleNormalSidebar(false));
   };
-  useEffect(() => {
-    if (!screenSm) {
-      dispatch(actions.handleDrawerSidebar(false));
-    }
-  }, [screenSm]);
   return (
-    <Container className={cn({ drawerSidebar })}>
+    <Container className={cn({ normalSidebar })}>
       <ButtonMenu>
         <BarIcon onClick={onClick}><IconMenuBar /></BarIcon>
         <Logo to="/">
@@ -49,7 +40,7 @@ const Container = styled.div`
   color: #fff;
   transform: translateX(-100%);
   transition: .2s;
-  &.drawerSidebar {
+  &.normalSidebar {
     transform: none;
   }
 `;
@@ -57,6 +48,7 @@ const Container = styled.div`
 const ButtonMenu = styled.div`
   display: flex;
   align-items: center;
+  padding-left: 16px;
 `;
 
 const Logo = styled(Link)`
@@ -70,7 +62,8 @@ const BarIcon = styled.div`
   width: 40px;
   height: 40px;
   padding: 8px;
-
+  margin-right: 16px;
+  cursor: pointer;
   svg {
     width: 24px;
     height: 24px;
@@ -89,4 +82,4 @@ const LogoIcon = styled.div`
   }
 `;
 
-export default DrawerSidebar;
+export default WatchSidebarContainer;

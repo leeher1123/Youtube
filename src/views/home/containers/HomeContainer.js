@@ -2,9 +2,10 @@ import React, { useEffect } from 'react';
 import styled from 'styled-components';
 import { useDispatch, useSelector } from 'react-redux';
 
-import { actions } from '../../shared/redux/reducer';
+import { actions } from '../../shared/redux/slice';
 import MainVideosList from '../components/MainVideosList';
 import ScrollMenu from '../../shared/components/Menu/ScrollMenu';
+import SidebarContainer from '../../shared/containers/sidebar/SidebarContainer';
 
 const HomeContainer = () => {
   const dispatch = useDispatch();
@@ -38,6 +39,7 @@ const HomeContainer = () => {
 
   return (
     <Container>
+      <SidebarContainer />
       <ScrollMenu categories={categories.items} />
       <MainVideosList videos={videos} />
     </Container>

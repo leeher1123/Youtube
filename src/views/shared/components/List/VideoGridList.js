@@ -28,7 +28,6 @@ const Row = styled.div`
 
 const Col = styled.div`
   width: 100%;
-  margin-bottom: 10px;
 `;
 
 export default VideoGridList;
