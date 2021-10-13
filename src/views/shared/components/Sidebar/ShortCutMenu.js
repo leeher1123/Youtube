@@ -1,9 +1,10 @@
 import React from 'react';
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 
 import {
   IconSideHome, IconSideKeep, IconSideSearch, IconSideSub,
 } from '../../../../icon';
+import { media } from '../../../../lib/styled';
 
 const ShortCutMenu = () => {
   const a = 1;
@@ -32,6 +33,9 @@ const ShortCutMenu = () => {
 const Container = styled.div`
   background: rgba(33, 33, 33, 0.98);
   width: 72px;
+  ${media.md(css`
+    display: none;
+  `)};
 `;
 
 const MenuIcon = styled.div`
@@ -43,15 +47,18 @@ const MenuIcon = styled.div`
   padding: 16px 0 14px;
   transition: .2s;
   cursor: pointer;
+
   svg {
     width: 24px;
     height: 100%;
     fill: #fff;
   }
+
   p {
     color: #fff;
     font-size: 10px;
   }
+
   &:hover {
     background: rgba(118, 118, 118, 0.3);
   }

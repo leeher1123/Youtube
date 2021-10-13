@@ -1,5 +1,5 @@
 import React from 'react';
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 
 import { useSelector } from 'react-redux';
 
@@ -7,6 +7,7 @@ import cn from 'classnames';
 
 import GridList from '../../../shared/components/List/GridList';
 import MainVideosItem from '../MainVideosItem';
+import { media } from '../../../../lib/styled';
 
 const MainVideosList = ({ videos }) => {
   const normalSidebar = useSelector((state) => state.shared.normalSidebar);
@@ -29,6 +30,9 @@ const Container = styled.div`
   &.normalSidebar {
     padding: 81px 24px 24px 24px;
   }
+  ${media.md(css`
+    padding: 81px 24px 24px 24px;
+  `)};
 `;
 
 export default MainVideosList;

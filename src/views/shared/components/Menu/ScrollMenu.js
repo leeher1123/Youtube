@@ -1,7 +1,9 @@
 import React from 'react';
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 import { useSelector } from 'react-redux';
 import cn from 'classnames';
+
+import { media } from '../../../../lib/styled';
 
 const ScrollMenu = ({ categories }) => {
   const normalSidebar = useSelector((state) => state.shared.normalSidebar);
@@ -30,6 +32,9 @@ const Container = styled.div`
   &.normalSidebar {
     left: 240px;
   }
+  ${media.md(css`
+    left: 0;
+  `)};
 `;
 
 const Track = styled.div`

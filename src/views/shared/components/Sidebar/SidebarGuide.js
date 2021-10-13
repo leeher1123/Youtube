@@ -12,6 +12,7 @@ const SidebarGuide = () => {
 
 const Container = styled.div`
   width: 72px;
+
   &.normalSidebar {
     flex-shrink: 0;
     width: 240px;
