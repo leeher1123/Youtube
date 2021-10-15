@@ -3,9 +3,15 @@ import styled from 'styled-components';
 import { formatDistance } from 'date-fns';
 import ko from 'date-fns/locale/ko';
 
+import { useHistory } from 'react-router-dom';
+
 import { count } from '../../../lib/count';
 
 const MainVideosItem = ({ item }) => {
+  const history = useHistory();
+  const onClick = () => {
+    history.push(`/watch/${item.id}`);
+  };
   const distance = formatDistance(
     new Date(item?.snippet?.publishedAt),
     new Date(Date.now()),
@@ -13,7 +19,8 @@ const MainVideosItem = ({ item }) => {
   );
 
   return (
-    <Container>
+    <Container onClick={onClick}>
+      <Cover />
       <Thumb>
         <img src={item?.snippet?.thumbnails?.medium?.url} alt="사진" />
       </Thumb>
@@ -41,7 +48,25 @@ const MainVideosItem = ({ item }) => {
 };
 
 const Container = styled.div`
+  position: relative;
   margin-bottom: 30px;
+  cursor: pointer;
+`;
+
+const Cover = styled.div`
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 10;
+  background: rgba(170, 170, 170, 0.1);
+  border: 1px solid rgba(170, 170, 170, 0.12);
+  opacity: 0;
+  transition: background .1s, border .3s;
+  &:active {
+    opacity: 1;
+  }
 `;
 
 const Thumb = styled.div`

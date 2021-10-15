@@ -34,6 +34,7 @@ const Container = styled.div`
   position: relative;
   display: flex;
   cursor: pointer;
+  margin-bottom: 7px;
 `;
 
 const Cover = styled.div`
@@ -57,6 +58,7 @@ const Thumb = styled.div`
   margin-right: 19px;
   img {
     width: 100%;
+    height: 100%;
     object-fit: cover;
   }
 `;
@@ -98,6 +100,10 @@ const Text = styled.div`
     font-weight: 500;
     color: #fff;
     margin-top: 4px;
+  }
+  @media (max-width: 987px) {
+    font-size: 14px;
+    font-weight: 500;
   }
 `;
 const Desc = styled.div`
