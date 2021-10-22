@@ -1,18 +1,44 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import styled, { css } from 'styled-components';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import cn from 'classnames';
 
 import { media } from '../../../../lib/styled';
+import { actions } from '../../redux/slice';
 
 const ScrollMenu = ({ categories }) => {
   const normalSidebar = useSelector((state) => state.shared.normalSidebar);
+  const dispatch = useDispatch();
+  const [video, setVideo] = useState(null);
+  console.log(video);
+
+  const getCategoryVideos = () => {
+    dispatch(actions.getVideos({
+      key: 'AIzaSyAHuPMZcDQA74fPEKkh-qfX-O4u11iyfEY',
+      part: 'id, snippet, statistics',
+      regionCode: 'KR',
+      maxResults: 5,
+      videoCategoryId: video,
+    }));
+  };
+
+  useEffect(() => {
+    getCategoryVideos();
+  }, [video]);
+
   if (!categories) return '...loading';
   return (
     <Container className={cn({ normalSidebar })}>
       <Track>
         {
-          categories.map((item) => <MenuItem>{item.snippet.title}</MenuItem>)
+          categories.map((item) => (
+            <MenuItem onClick={() => {
+              setVideo(item.id);
+            }}
+            >
+              {item.snippet.title}
+            </MenuItem>
+          ))
         }
       </Track>
     </Container>
