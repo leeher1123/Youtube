@@ -12,6 +12,7 @@ import {
 import { count } from '../../../lib/count';
 import { DefaultButton } from '../../shared/components/Button/Button.Styled';
 import RelatedVideosList from './RelatedVideosList';
+import CommentContainer from '../containers/CommentContainer';
 
 const WatchContents = ({ data = [] }) => {
   const screenMd = useMediaMatch('(max-width: 1004px)');
@@ -61,6 +62,7 @@ const WatchContents = ({ data = [] }) => {
       {
         screenMd ? <RelatedVideosList searchVideos={searchVideos} /> : null
       }
+      <CommentContainer />
     </Container>
   );
 };
