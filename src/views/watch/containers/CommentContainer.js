@@ -14,8 +14,8 @@ const CommentContainer = () => {
   const getComments = () => {
     dispatch(actions.getComments({
       key: 'AIzaSyAHuPMZcDQA74fPEKkh-qfX-O4u11iyfEY',
-      part: 'snippet, id, replies',
-      videoId,
+      part: 'snippet, id',
+      parentId: videoId,
     }));
   };
 

@@ -17,7 +17,7 @@ const API = {
     params,
   }),
   getComments: (params) => axios({
-    url: 'https://www.googleapis.com/youtube/v3/commentThreads',
+    url: 'https://www.googleapis.com/youtube/v3/comments',
     method: 'GET',
     params,
   }),

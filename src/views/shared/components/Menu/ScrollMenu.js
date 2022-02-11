@@ -10,7 +10,6 @@ const ScrollMenu = ({ categories }) => {
   const normalSidebar = useSelector((state) => state.shared.normalSidebar);
   const dispatch = useDispatch();
   const [video, setVideo] = useState(null);
-  console.log(video);
 
   const getCategoryVideos = () => {
     dispatch(actions.getVideos({
@@ -32,9 +31,11 @@ const ScrollMenu = ({ categories }) => {
       <Track>
         {
           categories.map((item) => (
-            <MenuItem onClick={() => {
-              setVideo(item.id);
-            }}
+            <MenuItem
+              key={item.id}
+              onClick={() => {
+                setVideo(item.id);
+              }}
             >
               {item.snippet.title}
             </MenuItem>

@@ -7,7 +7,6 @@ import API from '../../../api';
 
 const getComments = function* ({ payload }) {
   const result = yield call(API.getComments, payload);
-  console.log(result.data);
   yield put(actions.setComments(result.data));
 };
 

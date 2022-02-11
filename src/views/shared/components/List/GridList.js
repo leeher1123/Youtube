@@ -3,24 +3,21 @@ import styled, { css } from 'styled-components';
 
 import { media } from '../../../../lib/styled';
 
-const GridList = ({ data, children }) => {
-  const a = 1;
-  return (
-    <Container>
-      <Row>
-        {
-          data.map((item) => (
-            <Col key={item.id}>
-              {
-                children(item)
-              }
-            </Col>
-          ))
-        }
-      </Row>
-    </Container>
-  );
-};
+const GridList = ({ data, children }) => (
+  <Container>
+    <Row>
+      {
+        data.map((item) => (
+          <Col key={item.id}>
+            {
+              children(item)
+            }
+          </Col>
+        ))
+      }
+    </Row>
+  </Container>
+);
 
 const Container = styled.div`
   padding: 0 12px;
